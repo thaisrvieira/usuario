@@ -1,12 +1,14 @@
 package com.javanauta.usuario.infrastructure.exceptions;
 
-public class ResourceNotFoundException extends RuntimeException {
+import org.springframework.security.core.AuthenticationException;
 
-    public ResourceNotFoundException(String mensagem) {
+public class UnauthorizedException extends AuthenticationException {
+
+    public UnauthorizedException(String mensagem) {
         super(mensagem);
     }
 
-    public ResourceNotFoundException(String mensagem, Throwable throwable){
+    public UnauthorizedException(String mensagem, Throwable throwable){
         super(mensagem, throwable);
     }
 }
