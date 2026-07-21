@@ -7,8 +7,11 @@ import com.javanauta.usuario.business.dto.TelefoneDTO;
 import com.javanauta.usuario.business.dto.UsuarioDTO;
 import com.javanauta.usuario.infrastructure.clients.ViaCepDTO;
 import com.javanauta.usuario.infrastructure.security.JwtUtil;
+import com.javanauta.usuario.infrastructure.security.SecurityConfig;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -19,14 +22,14 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/usuario")
 @RequiredArgsConstructor
-
+@Tag(name = "Tarefas", description = "Cadastra tarefas de usuários")
+@SecurityRequirement(name = SecurityConfig.SECURITY_SCHEME)
 public class UsuarioController {
 
     private final UsuarioService usuarioService;
     private final AuthenticationManager authenticationManager;
     private final JwtUtil jwtUtil;
     private final ViaCepService viaCepService;
-
 
     @PostMapping
     @Operation(summary = "Salvar Usuário", description = "Cria um novo usuário")
@@ -127,7 +130,7 @@ public class UsuarioController {
     @ApiResponse(responseCode = "200", description = "Endereço encontrado")
     @ApiResponse(responseCode = "400", description = "CEP inválido")
     @ApiResponse(responseCode = "500", description = "Erro de servidor")
-    public ResponseEntity<ViaCepDTO> buscarDadosCep(@PathVariable("cep") String cep){
+    public ResponseEntity<ViaCepDTO> buscarDadosCep(@PathVariable("cep") String cep) {
         return ResponseEntity.ok(viaCepService.buscaDadosEndereco(cep));
     }
 }
