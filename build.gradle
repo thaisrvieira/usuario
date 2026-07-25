@@ -2,6 +2,7 @@ plugins {
 	id 'java'
 	id 'org.springframework.boot' version '4.1.0'
 	id 'io.spring.dependency-management' version '1.1.7'
+	id "org.sonarqube" version "7.3.1.8318"
 }
 
 group = 'com.javanauta'
@@ -58,4 +59,18 @@ dependencyManagement {
 
 tasks.named('test') {
 	useJUnitPlatform()
+}
+
+sonarqube {
+
+	properties {
+
+		property "sonar.projectKey", "usuario"
+
+		property "sonar.host.url", "http://localhost:9000"
+
+		property "sonar.login", "sqa_c82a56a6538ba453cca4175a3995cee0ea5be882"
+
+	}
+
 }
