@@ -104,7 +104,7 @@ public class UsuarioController {
     @ApiResponse(responseCode = "401", description = "Token inválido ou ausente")
     @ApiResponse(responseCode = "500", description = "Erro de servidor")
     public ResponseEntity<EnderecoDTO> cadastraEndereco(@RequestBody EnderecoDTO dto, @RequestHeader("Authorization") String token) {
-        return ResponseEntity.ok(usuarioService.cadastroEndereco(token, dto));
+        return ResponseEntity.ok(usuarioService.cadastraEndereco(token, dto));
     }
 
     @PostMapping("/telefone")
@@ -114,7 +114,7 @@ public class UsuarioController {
     @ApiResponse(responseCode = "401", description = "Token inválido ou ausente")
     @ApiResponse(responseCode = "500", description = "Erro de servidor")
     public ResponseEntity<TelefoneDTO> cadastraTelefone(@RequestBody TelefoneDTO dto, @RequestHeader("Authorization") String token) {
-        return ResponseEntity.ok(usuarioService.cadastroTelefone(token, dto));
+        return ResponseEntity.ok(usuarioService.cadastraTelefone(token, dto));
     }
 
     @GetMapping("/endereco/{cep}")
