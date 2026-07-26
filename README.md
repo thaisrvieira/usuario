@@ -6,10 +6,10 @@ Microsserviço responsável pelo cadastro, autenticação e gerenciamento de usu
 
 Este serviço faz parte de uma aplicação distribuída em arquitetura de microsserviços, composta por:
 
-- [**BFF**](#) — orquestra as chamadas para os demais serviços
+- [**BFF**](https://github.com/thaisrvieira/bff-agendador-tarefas) — orquestra as chamadas para os demais serviços
 - **Usuário** (este repositório) — gerenciamento de usuários, autenticação e endereços
-- [**Agendador de Tarefas**](#) — CRUD de tarefas agendadas (MongoDB)
-- [**Notificação**](#) — envio de e-mails de notificação
+- [**Agendador de Tarefas**](https://github.com/thaisrvieira/agendador-tarefas) — CRUD de tarefas agendadas (MongoDB)
+- [**Notificação**](https://github.com/thaisrvieira/notificacao) — envio de e-mails de notificação
 
 ## 🚀 Tecnologias utilizadas
 
